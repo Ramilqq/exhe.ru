@@ -2,17 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::controller(App\Http\Controllers\Web\IndexController::class)->group(function () {
+    Route::get('/{page?}', 'index')->name('index');
+});
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(App\Http\Controllers\Admin\DashboardController::class)->prefix('/admin')->group(function () {
+    Route::get('/dashboard', 'index')->name('admin.dashboard');
+});
+Route::controller(App\Http\Controllers\Admin\IndexController::class)->prefix('/admin')->group(function () {
+    Route::get('/index', 'index')->name('admin.index');
 });
