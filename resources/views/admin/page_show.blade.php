@@ -3,7 +3,8 @@
 <x-layout_admin>
     <div class="card">
         <div>
-            <a class="btn btn-primary m-1" href="{{ route('admin.page_index') }}">Вернуться назад</a>
+            <a class="btn btn-primary m-1" href="{{ route('admin.page_index') }}">Все страницы</a>
+            <a href="{{route('admin.page.content_create', $page->id)}}" class="btn btn-primary">Добавить содержание</a>
         </div>
     </div>
     <div class="card">
@@ -64,7 +65,7 @@
             <div class="row">
                 <div class="col-8" style="display: inline-flex;">
                 <a href="{{route('admin.page_edit', $page->id)}}" class="btn btn-outline-warning btn-sm"><i class="ti ti-edit"></i> Изменить</a>
-                <form method="POST" action="{{ route('admin.page_delete', $page->id) }}">
+                <form class="form-del" method="POST" action="{{ route('admin.page_delete', $page->id) }}">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-outline-danger btn-sm"><i class="ti ti-trash"></i> Удалить</button>
@@ -73,4 +74,66 @@
             </div>
         </div>
     </div>
+    @foreach ($contents as $content)
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Содержание</h5>
+            <div class="row">
+                <div class="col-8">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Заголовок</label>
+                        <input name="title" type="text" class="form-control" id="title" aria-describedby="titleHelp" value="{{$content->title}}" disabled>
+                        <div id="titleHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sort" class="form-label">Порядок сортировки</label>
+                        <input name="sort" type="text" class="form-control" id="sort" aria-describedby="sortlHelp" value="{{$content->sort}}" disabled>
+                        <div id="sortHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Изображение</label>
+                        <input name="image" type="file" class="form-control" id="image" aria-describedby="imageHelp" value="{{$content->image}}" disabled>
+                        <div id="imageHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="action" class="form-label">Ссылка</label>
+                        <input name="action" type="text" class="form-control" id="action" aria-describedby="actionHelp" value="{{$content->action}}" disabled>
+                        <div id="actionHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Содержание</label>
+                        @if($content->html)
+                        <div name="text" type="text" class="form-control" id="text" aria-describedby="textHelp" style="background-color: var(--bs-secondary-bg);">{!!$content->text!!}</div>
+                        @else
+                        <textarea name="text" type="text" class="form-control" id="text" aria-describedby="textHelp" disabled>{{$content->text}}</textarea>
+                        @endif
+                        
+                        <div id="textHelp" class="form-text"></div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input name="html" class="form-check-input" type="checkbox" id="html" @checked(old('checked', $content->html)) disabled>
+                            <label class="form-label" for="html">Включить редактор</label>
+                        </div>
+                        <div id="htmlHelp" class="form-text">Включить HTML редактор</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-8" style="display: inline-flex;">
+                <a href="{{route('admin.page.content_edit', [$page->id, $content->id])}}" class="btn btn-outline-warning btn-sm"><i class="ti ti-edit"></i> Изменить</a>
+                    <form class="form-del" method="POST" action="{{ route('admin.page.content_delete', [$page->id, $content->id]) }}">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-outline-danger btn-sm"><i class="ti ti-trash"></i> Удалить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    <x-script-confirm-delete />
 </x-layout_admin>

@@ -3,7 +3,7 @@
 <x-layout_admin>
     <div class="card">
         <div>
-            <a class="btn btn-primary m-1" href="{{ route('admin.page_index') }}">Вернуться назад</a>
+            <a class="btn btn-primary m-1" href="{{ route('admin.page_index') }}">Все страницы</a>
         </div>
     </div>
     <div class="card">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Создать</button>
+                <button type="submit" class="btn btn-outline-warning">Создать</button>
             </form>
         </div>
     </div>

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PageRequest;
 use App\Models\Page;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
+use App\Http\Requests\Admin\ContentRequest;
+use App\Models\Content;
 
 class PageController extends Controller
 {
@@ -19,9 +19,12 @@ class PageController extends Controller
     }
 
     public function show (Page $page)
-    {
+    {   
+        $contents = $page->contents()->get()->sortBy('sort');
+
         return view('admin.page_show', [
-            'page' => $page
+            'page' => $page,
+            'contents' => $contents,
         ]);
     }
 
@@ -32,7 +35,7 @@ class PageController extends Controller
 
     public function store (PageRequest $request)
     {
-        if  (Page::create($request->validated())) $request->session()->flash('success', 'Старица создана успешно'); else $request->session()->flash('error', 'Старица создана с ошибкой');
+        Page::create($request->validated()) ? $this->alert_success() : $this->alert_error();
         return redirect()->route('admin.page_index');
     }
 
@@ -45,13 +48,50 @@ class PageController extends Controller
 
     public function update (PageRequest $request, Page $page)
     {   
-        if  ($page->update($request->validated())) $request->session()->flash('success', 'Старица обновлена успешно'); else $request->session()->flash('error', 'Старица обновлена с ошибкой');
+        $page->update($request->validated()) ? $this->alert_success() : $this->alert_error();
         return redirect()->route('admin.page_show', $page->id);
     }
 
-    public function delete (Request $request, Page $page)
+    public function delete (Page $page)
     {
-        if  ($page->delete()) $request->session()->flash('success', 'Старица удалена успешно'); else $request->session()->flash('error', 'Старица удалена с ошибкой');
+        $page->contents()->delete();
+
+        $page->delete() ? $this->alert_success() : $this->alert_error();
         return redirect()->route('admin.page_index');
     }
+
+    public function createContent (Page $page)
+    {
+        return view('admin.content_create', [
+            'page' => $page
+        ]);
+    }
+
+    public function storeContent (Page $page, ContentRequest $request)
+    {
+        $page->contents()->create($request->validated());
+
+        return redirect()->route('admin.page_show', $page->id);
+    }
+
+    public function editContent (Page $page, Content $content)
+    {
+        return view('admin.content_edit', [
+            'page' => $page,
+            'content' => $content
+        ]);
+    }
+
+    public function updateContent (ContentRequest $request, Page $page, Content $content)
+    {
+        $content->update($request->validated()) ? $this->alert_success() : $this->alert_error();
+        return redirect()->route('admin.page_show', $page->id);
+    }
+
+    public function deleteContent (Page $page, Content $content)
+    {
+        $content->delete() ? $this->alert_success() : $this->alert_error();
+        return redirect()->route('admin.page_show', $page->id);
+    }
+
 }

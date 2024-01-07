@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
 
-            $table->string('titile')->nullable();
+            $table->string('title')->nullable();
             $table->string('sort')->nullable()->default(0);
             $table->string('image')->nullable();
             $table->string('action')->nullable();
             $table->boolean('html')->nullable()->default(true);
             $table->text('text')->nullable();
 
-            $table->morphs('content');
+            $table->morphs('modeltable');
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Page extends Model
 {
@@ -23,5 +24,10 @@ class Page extends Model
     public function resolveRouteBinding($value, $field = null)
     {
         return $this->where($field ?? 'id', $value)->firstOrFail();
+    }
+
+    public function contents(): MorphMany
+    {
+        return $this->morphMany(Content::class, 'modeltable');
     }
 }

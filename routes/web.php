@@ -17,4 +17,11 @@ Route::controller(App\Http\Controllers\Admin\PageController::class)->prefix('/ad
     Route::get('/page/{page}/edit', 'edit')->name('admin.page_edit');
     Route::patch('/page/{page}/edit', 'update')->name('admin.page_update');
     Route::delete('/page/{page}/delete', 'delete')->name('admin.page_delete');
+
+    Route::get('/page/{page}/content/create', 'createContent')->name('admin.page.content_create');
+    Route::post('/page/{page}/content/create', 'storeContent')->name('admin.page.content_store');
+    Route::get('/page/{page}/content/{content}/edit', 'editContent')->name('admin.page.content_edit');
+    Route::patch('/page/{page}/content/{content}/edit', 'updateContent')->name('admin.page.content_update');
+    Route::delete('/page/{page}/content/{content}/delete', 'deleteContent')->name('admin.page.content_delete');
 });
+

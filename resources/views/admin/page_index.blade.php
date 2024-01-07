@@ -29,7 +29,7 @@
                             <td style="display: inline-flex;">
                                 <a href="{{route('admin.page_show', $page['id'])}}" class="btn btn-outline-info btn-sm"><i class="ti ti-eye"></i></a>
                                 <a href="{{route('admin.page_edit', $page['id'])}}" class="btn btn-outline-warning btn-sm"><i class="ti ti-edit"></i></a>
-                                <form method="POST" action="{{ route('admin.page_delete', $page['id']) }}">
+                                <form class="form-del" method="POST" action="{{ route('admin.page_delete', $page['id']) }}">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-outline-danger btn-sm"><i class="ti ti-trash"></i></button>
@@ -43,4 +43,6 @@
 
         </div>
     </div>
+
+    <x-script-confirm-delete />
 </x-layout_admin>
