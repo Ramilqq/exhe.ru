@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\PageRequest;
 use App\Models\Page;
 use App\Http\Requests\Admin\ContentRequest;
 use App\Models\Content;
+use Illuminate\Support\Facades\File;
 
 class PageController extends Controller
 {
@@ -54,8 +55,6 @@ class PageController extends Controller
 
     public function delete (Page $page)
     {
-        $page->contents()->delete();
-
         $page->delete() ? $this->alert_success() : $this->alert_error();
         return redirect()->route('admin.page_index');
     }
@@ -69,8 +68,13 @@ class PageController extends Controller
 
     public function storeContent (Page $page, ContentRequest $request)
     {
-        $page->contents()->create($request->validated());
+        $content = $page->contents()->create($request->validated());
 
+        if ($file = $request->file('image'))
+        {
+            $this->storeImage($file, $content);
+        }
+        
         return redirect()->route('admin.page_show', $page->id);
     }
 
@@ -84,6 +88,12 @@ class PageController extends Controller
 
     public function updateContent (ContentRequest $request, Page $page, Content $content)
     {
+        if ($file = $request->file('image'))
+        {
+            $this->deleteImage($content);
+            $this->updateImage($file, $content);
+        } 
+
         $content->update($request->validated()) ? $this->alert_success() : $this->alert_error();
         return redirect()->route('admin.page_show', $page->id);
     }
@@ -92,6 +102,21 @@ class PageController extends Controller
     {
         $content->delete() ? $this->alert_success() : $this->alert_error();
         return redirect()->route('admin.page_show', $page->id);
+    }
+
+    public function storeImage ($file, Content $content)
+    {
+        $this->image_update($file, $content);
+    }
+
+    public function updateImage ($file, Content $content)
+    {
+        $this->image_update($file, $content);
+    }
+
+    public function deleteImage (Content $content)
+    {
+        $this->image_delete($content);
     }
 
 }

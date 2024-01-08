@@ -94,6 +94,11 @@
                         <label for="image" class="form-label">Изображение</label>
                         <input name="image" type="file" class="form-control" id="image" aria-describedby="imageHelp" value="{{$content->image}}" disabled>
                         <div id="imageHelp" class="form-text"></div>
+
+                        @foreach ($content->images()->get() as $image)
+                            <img src="{{$image->image}}" >
+                        @endforeach
+
                     </div>
                     <div class="mb-3">
                         <label for="action" class="form-label">Ссылка</label>

@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title fw-semibold mb-4">Навое содержание страницы</h5>
-            <form method="POST" action="{{ route('admin.page.content_store', $page->id) }}">
+            <form method="POST" action="{{ route('admin.page.content_store', $page->id) }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-8">

@@ -16,7 +16,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title fw-semibold mb-4">Навое содержание страницы</h5>
-            <form method="POST" action="{{ route('admin.page.content_edit', [$page->id, $content->id]) }}">
+            <form method="POST" action="{{ route('admin.page.content_edit', [$page->id, $content->id]) }}" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
                 <div class="row">
@@ -44,6 +44,11 @@
                             <input name="image" type="file" class="form-control @error('image') is-invalid @enderror" id="image" aria-describedby="imageHelp" value="{{old('image') ?: $content->image}}">
                             <div id="imageHelp" class="form-text"></div>
                             @error('image')<div id="imageFeedback" class="invalid-feedback">{{ $message }}</div>@enderror
+
+                            @foreach ($content->images()->get() as $image)
+                                <img src="{{$image->image}}" >
+                            @endforeach
+
                         </div>
                         <div class="mb-3">
                             <label for="action" class="form-label">Ссылка</label>

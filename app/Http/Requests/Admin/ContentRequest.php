@@ -20,7 +20,7 @@ class ContentRequest extends FormRequest
                 return [
                     'title'     => ['required', 'string'],
                     'sort'      => ['required', 'numeric'],
-                    'image'     => ['nullable', 'file'],
+                    'image'     => ['nullable'],
                     'action'    => ['nullable', 'string'],
                     'html'      => ['nullable', 'boolean'],
                     'text'      => ['required', 'string'],
@@ -29,7 +29,7 @@ class ContentRequest extends FormRequest
                 return [
                     'title'     => ['required', 'string'],
                     'sort'      => ['required', 'numeric'],
-                    'image'     => ['nullable', 'file'],
+                    'image'     => ['nullable'],
                     'action'    => ['nullable', 'string'],
                     'html'      => ['nullable', 'boolean'],
                     'text'      => ['required', 'string'],

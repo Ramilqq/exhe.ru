@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Content extends Model
 {
@@ -17,8 +18,6 @@ class Content extends Model
         'action',
         'html',
         'text',
-        'modeltable_id',
-        'modeltable_type',
     ];
 
     public function resolveRouteBinding($value, $field = null)
@@ -29,5 +28,20 @@ class Content extends Model
     public function modeltable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function images(): MorphMany
+    {
+        return $this->morphMany(Image::class, 'modeltable');
+    }
+
+    protected static function boot() {
+        parent::boot();
+        static::deleting(function($model){
+            foreach($model->images()->get() as $image)
+            {
+                $image->delete();
+            }
+        });
     }
 }
