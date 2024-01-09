@@ -1,6 +1,13 @@
 @section('title', $title ?? env('APP_NAME'))
 @section('description', $description ?? 'Сервис проверки и анализа российских юридических лиц и предпринимателей')
 
+@push('css')
+    <link rel="stylesheet" href="/assets/css_web/page_about.css?v={{time()}}" />
+    <link rel="stylesheet" href="/assets/css_web/main.css?v={{time()}}" />
+@endpush
+
+@section('advantages', 'about-page')
+
 <x-layout>
     <section class="main-section info-page-bg-alt">
         <div class="container">
@@ -23,7 +30,7 @@
         <div class="container has-padding">
             <div class="img-cols-block cols-centered">
                 <h2 class="page-title-h3 no-margin-top">Непрерывно собираем актуальную информацию из открытых официальных источников. Показываем все сведения о юридических лицах в структурированном виде.</h2>
-                <div class="img-cols-block-img img-cols-block-img-no-margin img-fader"> <img data-srcset="/storage/images_web/about/responsive/features.png 1x, /storage/images_web/about/responsive/features@2x.png 2x, /storage/images_web/about/responsive/features@3x.png 3x, /storage/images_web/about/responsive/features@4x.png 4x" data-origin="/storage/images_web/about/responsive/features.png" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload hide-sub-mobile" height="355" alt="Наша задача — искать и предоставлять самые актуальные данные и давать возможности их легко анализировать и делать выводы."> <img data-srcset="/storage/images_web/about/responsive/features_mobile.png 1x, /storage/images_web/about/responsive/features_mobile@2x.png 2x, /storage/images_web/about/responsive/features_mobile@3x.png 3x, /storage/images_web/about/responsive/features_mobile@4x.png 4x" data-origin="/storage/images_web/about/responsive/features_mobile.png" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload show-sub-mobile" height="304" alt="Наша задача — искать и предоставлять самые актуальные данные и давать возможности их легко анализировать и делать выводы."> </div>
+                <div class="img-cols-block-img img-cols-block-img-no-margin img-fader"> <img src="/storage/images_web/features.png" class="lazyload hide-sub-mobile" height="355" alt="Наша задача — искать и предоставлять самые актуальные данные и давать возможности их легко анализировать и делать выводы."> <img src="/storage/images_web/features_mobile.png" class="lazyload show-sub-mobile" height="304" alt="Наша задача — искать и предоставлять самые актуальные данные и давать возможности их легко анализировать и делать выводы."> </div>
                 <a href="/sources" class="has-arr">Источники данных<span class="arr"></span></a> </div>
         </div>
     </section>
@@ -32,12 +39,12 @@
             <div class="text-align-c">
                 <h2 class="page-title-h2">Приносим пользу</h2>
                 <p>Помогаем пользователям выбирать контрагентов и принимать взвешенные решения о сотрудничестве.</p>
-                <p>Сервисом пользуются менеджеры по продажам и закупкам, юристы, бухгалтеры, финансисты, специалисты по безопасности, руководители и собственники компаний.</p> <img data-srcset="/storage/images_web/about/responsive/clients.png 1x, /storage/images_web/about/responsive/clients@2x.png 2x, /storage/images_web/about/responsive/clients@3x.png 3x, /storage/images_web/about/responsive/clients@4x.png 4x" data-origin="/storage/images_web/about/responsive/clients.png" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload hide-sub-mobile" height="138" alt="Rusprofile повышает прозрачность деятельности компании, существенно сокращает время на анализ и принятие решения о сотрудничестве и сохраняет деньги бизнесу."> <img data-srcset="/storage/images_web/about/responsive/clients-mobile.png 1x, /storage/images_web/about/responsive/clients-mobile@2x.png 2x, /storage/images_web/about/responsive/clients-mobile@3x.png 3x, /storage/images_web/about/responsive/clients-mobile@4x.png 4x" data-origin="/storage/images_web/about/responsive/clients-mobile.png" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload show-sub-mobile" height="85" alt="Rusprofile повышает прозрачность деятельности компании, существенно сокращает время на анализ и принятие решения о сотрудничестве и сохраняет деньги бизнесу."> </div>
+                <p>Сервисом пользуются менеджеры по продажам и закупкам, юристы, бухгалтеры, финансисты, специалисты по безопасности, руководители и собственники компаний.</p> <img src="/storage/images_web/clients.png" class="lazyload hide-sub-mobile" height="138" alt="Rusprofile повышает прозрачность деятельности компании, существенно сокращает время на анализ и принятие решения о сотрудничестве и сохраняет деньги бизнесу."> <img src="/storage/images_web/clients-mobile.png" class="lazyload show-sub-mobile" height="85" alt="Rusprofile повышает прозрачность деятельности компании, существенно сокращает время на анализ и принятие решения о сотрудничестве и сохраняет деньги бизнесу."> </div>
         </div>
     </section>
     <section class="info-page-bg-alt">
         <div class="container">
-            <div class="cols-two box-white comment-master"> <img data-srcset="/storage/images_web/about/responsive/viktor.jpg 1x, /storage/images_web/about/responsive/viktor@2x.jpg 2x, /storage/images_web/about/responsive/viktor@3x.jpg 3x, /storage/images_web/about/responsive/viktor@4x.jpg 4x" data-origin="/storage/images_web/about/responsive/viktor.jpg" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload box-img" alt="Виктор, коммерческий директор">
+            <div class="cols-two box-white comment-master"> <img src="/storage/images_web/viktor.jpg" class="lazyload box-img" alt="Виктор, коммерческий директор">
                 <div class="comment-text-block fs24">
                     <div class="tag">Фармацевтическая компания</div>
                     <blockquote class="quoted">
@@ -52,7 +59,7 @@
                     <blockquote class="quoted">
                         <p class="faded-text js-show-faded-text"> Мы обеспечиваем строительными материалами большое количество объектов. Поэтому у нас много поставщиков. Однажды мы не проверили компанию и столкнулись с обманом: не получили товар и не смогли вернуть предоплату. Поэтому решили, что каждую компанию нужно проверять и оценивать. Когда стоимость контракта с поставщиком превышает определенную сумму, я сразу же проверяю компанию через Rusprofile. Максимум за полчаса я узнаю почти все про своего потенциального поставщика. </p>
                     </blockquote>
-                    <div class="author flex"> <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" data-origin="/storage/images_web/about/author_1.jpg" data-src="/storage/images_web/about/author_1.jpg" alt="Алла" width="48" height="48">
+                    <div class="author flex"> <img class="lazyload" src="/storage/images_web/author_1.jpg" alt="Алла" width="48" height="48">
                         <div class="author-name"> Алла
                             <div class="description">Начальник отдела снабжения</div>
                         </div>
@@ -63,7 +70,7 @@
                     <blockquote class="quoted">
                         <p class="faded-text js-show-faded-text"> Мы известны в ?&nbsp;оссии, но в некоторых регионах о нас знают мало или не знают совсем. Возможности и времени регулярно летать на Дальний Восток или во Владикавказ, чтобы знакомиться с потенциальными клиентами, у меня нет. Поэтому я использую Rusprofile — по коду ОКВЭД нахожу в регионе все предприятия, отбираю компании, которые потенциально смогут позволить наше оборудование. Смотрю на их выручку, наличие долгов и судебных дел. Это здорово экономит время: я не трачу время на нецелевых клиентов, которые не смогут приобрести наш продукт. </p>
                     </blockquote>
-                    <div class="author flex"> <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" data-origin="/storage/images_web/about/author_2.jpg" data-src="/storage/images_web/about/author_2.jpg" alt="Алексей" width="48" height="48">
+                    <div class="author flex"> <img class="lazyload" src="/storage/images_web/author_2.jpg" alt="Алексей" width="48" height="48">
                         <div class="author-name"> Алексей
                             <div class="description">Менеджер по продажам</div>
                         </div>
@@ -77,7 +84,7 @@
             <div class="cols-two comment-alt">
                 <div class="left-part">
                     <div class="page-title"> Rusprofile помогает </div>
-                    <div class="author flex"> <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" data-origin="/storage/images_web/about/lida.png" data-src="/storage/images_web/about/lida.png" alt="Лидия" width="48" height="48">
+                    <div class="author flex"> <img class="lazyload" src="/storage/images_web/lida.png" alt="Лидия" width="48" height="48">
                         <div class="author-name"> Лидия Козлова,
                             <div class="description"> инженер службы поддержки сервиса Rusprofile </div>
                         </div>
@@ -96,15 +103,15 @@
             <div class="text-align-c">
                 <h2 class="page-title-h2 no-margin-top">Наши приоритеты</h2>
                 <ul class="cols-three">
-                    <li> <img data-srcset="/storage/images_web/about/responsive/card_1.png 1x, /storage/images_web/about/responsive/card_1@2x.png 2x, /storage/images_web/about/responsive/card_1@3x.png 3x, /storage/images_web/about/responsive/card_1@4x.png 4x" data-origin="/storage/images_web/about/responsive/card_1.png" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload" height="306" width="306" alt="Качество данных">
+                    <li> <img src="/storage/images_web/card_1.png" class="lazyload" height="306" width="306" alt="Качество данных">
                         <div class="title">Качество данных</div>
                         <p>Надежность, достоверность, актуальность и полнота сведений. Используем специальные технические решения для работы с open data</p>
                     </li>
-                    <li> <img data-srcset="/storage/images_web/about/responsive/card_2.png 1x, /storage/images_web/about/responsive/card_2@2x.png 2x, /storage/images_web/about/responsive/card_2@3x.png 3x, /storage/images_web/about/responsive/card_2@4x.png 4x" data-origin="/storage/images_web/about/responsive/card_2.png" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload" height="306" width="306" alt="Удобство интерфейса">
+                    <li> <img src="/storage/images_web/card_2.png" class="lazyload" height="306" width="306" alt="Удобство интерфейса">
                         <div class="title">Удобство интерфейса</div>
                         <p>Понятный интерфейс и четкая структура помогают анализировать представленные данные и делать выводы быстрее</p>
                     </li>
-                    <li> <img data-srcset="/storage/images_web/about/responsive/card_3.png 1x, /storage/images_web/about/responsive/card_3@2x.png 2x, /storage/images_web/about/responsive/card_3@3x.png 3x, /storage/images_web/about/responsive/card_3@4x.png 4x" data-origin="/storage/images_web/about/responsive/card_3.png" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload" height="306" width="306" alt="Количество задач">
+                    <li> <img src="/storage/images_web/card_3.png" class="lazyload" height="306" width="306" alt="Количество задач">
                         <div class="title">Количество задач</div>
                         <p>Количество задач, которые пользователи могут решить с помощью сервиса, постоянно растет</p>
                     </li>
@@ -115,7 +122,7 @@
         <div class="container has-padding-l about-team-block text-block">
             <h2 class="page-title-h2">Команда Rusprofile</h2>
             <div class="img-cols-block cols-centered">
-                <div class="img-cols-block-img"> <img data-srcset="/storage/images_web/about/responsive/team.jpg 1x, /storage/images_web/about/responsive/team@2x.jpg 2x, /storage/images_web/about/responsive/team@3x.jpg 3x, /storage/images_web/about/responsive/team@4x.jpg 4x" data-origin="/storage/images_web/about/responsive/team.jpg" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload" height="283" alt="Команда Rusprofile"> </div>
+                <div class="img-cols-block-img"> <img src="/storage/images_web/team.jpg" class="lazyload" height="283" alt="Команда Rusprofile"> </div>
                 <ul class="unstyled about-features-list text">
                     <li> <i class="ico ico-s" data-ico="star"> <svg><use xlink:href="storage/images_web/icons_1.svg#star"></use></svg> </i> Основатели <strong>Илья Мошин</strong> и <strong>Дмитрий Стрелков</strong>, выпускники факультета вычислительной математики и кибернетики МГУ </li>
                     <li> <i class="ico ico-s" data-ico="star"> <svg><use xlink:href="storage/images_web/icons_1.svg#star"></use></svg> </i> Инженеры с фундаментальным пониманием разработки </li>

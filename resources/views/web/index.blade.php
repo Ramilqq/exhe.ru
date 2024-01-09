@@ -1,51 +1,57 @@
 @section('title', $title ?? env('APP_NAME'))
 @section('description', $description ?? 'Сервис проверки и анализа российских юридических лиц и предпринимателей')
 
+@push('css')
+    <link rel="stylesheet" href="/assets/css_web/page_index.css?v={{time()}}" />
+    <link rel="stylesheet" href="/assets/css_web/main.css?v={{time()}}" />
+@endpush
+
+@section('advantages', 'index-page advantage-alt')
+
 <x-layout>
     <section class="main-section info-page-bg-alt" id="main-section">
         <div class="container">
             <div class="main-section__wrap">
                 <h1>Быстрая и удобная проверка
-                    <span>контрагентов</span></h1>
+                    <span>контрагентов</span>
+                </h1>
                 <div class="flex">
-                    <p class="strong main-section-subtitle"> Помогаем быстро и эффективно оценить надежность&nbsp;контрагента: защитите&nbsp;бизнес от&nbsp;штрафов,&nbsp;доначислений налогов и&nbsp;недобросовестных партнеров </p>
-                    <p> Каждый день более <strong>700&nbsp;000</strong>&nbsp;человек принимают бизнес-решения на&nbsp;основе данных Rusprofile </p>
+                    <p class="strong main-section-subtitle"> Помогаем быстро и эффективно оценить надежность контрагента: защитите бизнес от штрафов, доначислений налогов и недобросовестных партнеров </p>
+                    <p> Каждый день более <strong>700 000</strong> человек принимают бизнес-решения на основе данных Rusprofile </p>
                 </div>
             </div>
         </div>
-        <div class="illustrate-hero illustrate-hero-l lazyload" data-bg="/storage/images_web/index-page/top_left.png"></div>
-        <div class="illustrate-hero illustrate-hero-r lazyload" data-bg="/storage/images_web/illustrations/nb.png"></div>
+        <div class="illustrate-hero illustrate-hero-l lazyload" style="background-image: url(/storage/images_web/index-page/top_left.png);opacity: 1;"></div>
+        <div class="illustrate-hero illustrate-hero-r lazyload" style="background-image: url(/storage/images_web/index-page/nb.png);opacity: 1;"></div>
     </section>
     <div class="nav_rail">
         <nav id="navbar" class="js-sticky">
-            <a href="#main-section" class="quetip queimg list-group-item" data-quetip="Поиск по названию, адресу, ФО, ОГ&nbsp;Н или НН партнера"> <i class="ico" data-ico="lens"> <svg><use xlink:href="storage/images_web/icons_1.svg#lens"></use></svg> </i> </a>
+            <a href="#main-section" class="quetip queimg list-group-item" data-quetip="Поиск по названию, адресу, ФО, ОГ Н или НН партнера"> <i class="ico" data-ico="lens"> <svg><use xlink:href="storage/images_web/icons_1.svg#lens"></use></svg> </i> </a>
             <a href="#advantages-rating" class="quetip queimg list-group-item" data-quetip="Оценка контрагентов"> <i class="ico" data-ico="rate"> <svg><use xlink:href="storage/images_web/features-list.svg#rate"></use></svg> </i> </a>
             <a href="#advantages-scales" class="quetip queimg list-group-item" data-quetip="Судебные процессы и долги"> <i class="ico" data-ico="scales"> <svg><use xlink:href="storage/images_web/features-list.svg#scales"></use></svg> </i> </a>
             <a href="#advantages-connections" class="quetip queimg list-group-item" data-quetip="Связи между компаниями"> <i class="ico" data-ico="links"> <svg><use xlink:href="storage/images_web/features-list.svg#links"></use></svg> </i> </a>
-            <a href="#advantages-sources" class="quetip queimg list-group-item" data-quetip="Госзакупки"> <i class="ico" data-ico="portfolio"> <svg><use xlink:href="storage/images_web/features-list.svg#portfolio"></use></svg> </i> </a>
-            <a href="#advantages-onlooking" class="quetip queimg list-group-item" data-quetip="Отслеживание изменений"> <i class="ico" data-ico="ding"> <svg><use xlink:href="storage/images_web/icons.svg#ding"></use></svg> </i> </a>
-            <a href="#advantages-search-clients" class="quetip queimg list-group-item" data-quetip="Подбор контрагентов"> <i class="ico" data-ico="select_counterparties-outline"> <svg><use xlink:href="storage/images_web/icons.svg#select_counterparties-outline"></use></svg> </i> </a>
+            <a href="#advantages-onlooking" class="quetip queimg list-group-item" data-quetip="Отслеживание изменений"> <i class="ico" data-ico="ding"> <svg><use xlink:href="storage/images_web/icons1.svg#ding"></use></svg> </i> </a>
+            <a href="#advantages-search-clients" class="quetip queimg list-group-item" data-quetip="Подбор контрагентов"> <i class="ico" data-ico="select_counterparties-outline"> <svg><use xlink:href="storage/images_web/icons1.svg#select_counterparties-outline"></use></svg> </i> </a>
         </nav>
     </div>
     <section class="main-search btn-outside gradient-block">
         <div class="container">
-            <div class="main-search-wrap">
+            <div class="main-search-wrap" style="max-width: 100%;">
                 <form id="indexsearchform" action="/search" class="main-search-form index-search-form" method="GET" onsubmit="return (this.elements.namedItem('query').value.trim().length > 2)">
                     <div class="input-holder"> <i class="ico" data-ico="search"> <svg><use xlink:href="storage/images_web/icons_1.svg#search"></use></svg> </i>
-                        <input name="query" class="index-search-input" type="text" placeholder="скать по названию, адресу, руководителю, учредителям, ОГ&nbsp;Н и НН" data-prefix="Поиск" maxlength="100" autocomplete="off">
+                        <input name="query" class="index-search-input" type="text" placeholder="Искать по названию, адресу, руководителю, учредителям, ОГРН и ИНН" data-prefix="Поиск" maxlength="100" autocomplete="off">
                         <span class="finded-count"></span> </div>
                     <input type="hidden" class="search_inactive" name="search_inactive" value="0">
                     <button type="submit" class="search-btn waves-effect waves-light">
                         <span>Найти</span> <i class="ico" data-ico="search"> <svg><use xlink:href="storage/images_web/icons_1.svg#search"></use></svg> </i>
                     </button>
-                    <x-form.button>123</x-form.button>
                 </form>
                 <div class="search-drop"></div>
             </div>
-            <div class="main-search-counterparties">
+            <!--div class="main-search-counterparties">
                 <a href="/search-advanced" rel="nofollow" class="btn counterparties-btn" data-goal-param="interactions, main-advanced_search">
-                    <span>&nbsp;асширенный поиск</span> </a>
-            </div>
+                    <span> Расширенный поиск</span> </a>
+            </div-->
         </div>
     </section>
     <section class="nav-titles info-page-bg-alt">
@@ -65,14 +71,14 @@
                 </li>
                 <li>
                     <a href="#advantages-sources" class="menu-item"> <i class="ico ico-xl" data-ico="portfolio"> <svg><use xlink:href="storage/images_web/features-list.svg#portfolio"></use></svg> </i>
-                        <span> Госзакупки </span> </a>
+                        <span style="width: 100%;"> Госзакупки   </span> </a>
                 </li>
                 <li>
-                    <a href="#advantages-onlooking" class="menu-item"> <i class="ico ico-xl" data-ico="ding"> <svg><use xlink:href="storage/images_web/icons.svg#ding"></use></svg> </i>
+                    <a href="#advantages-onlooking" class="menu-item"> <i class="ico ico-xl" data-ico="ding"> <svg><use xlink:href="storage/images_web/icons1.svg#ding"></use></svg> </i>
                         <span> Отслеживание изменений </span> </a>
                 </li>
                 <li>
-                    <a href="#advantages-search-clients" class="menu-item"> <i class="ico ico-xl" data-ico="select_counterparties-outline"> <svg><use xlink:href="storage/images_web/icons.svg#select_counterparties-outline"></use></svg> </i>
+                    <a href="#advantages-search-clients" class="menu-item"> <i class="ico ico-xl" data-ico="select_counterparties-outline"> <svg><use xlink:href="storage/images_web/icons1.svg#select_counterparties-outline"></use></svg> </i>
                         <span> Подбор <br>контрагентов </span> </a>
                 </li>
             </ul>
@@ -96,7 +102,7 @@
                         <li>38 источников данных, подробные сведения по каждому</li>
                         <li>Ежедневное обновление информации</li>
                         <li>Маркеры риска по данным ФНС</li>
-                        <li>Банкротства из ЕФ&nbsp;СБ</li>
+                        <li>Банкротства из ЕФ СБ</li>
                         <li>Финансовое положение компании</li>
                         <li>стория изменений</li>
                         <li>Контактные данные юрлиц</li>
@@ -122,7 +128,7 @@
                     <ul>
                         <li>Все текущие и завершенные дела с участием компании</li>
                         <li>Почему, с кем и на какие суммы судится</li>
-                        <li>&nbsp;езультаты арбитражных процессов</li>
+                        <li> езультаты арбитражных процессов</li>
                         <li>сполнительные производства в отношении компании</li>
                         <li>Причины, суммы и статус требований</li>
                     </ul>
@@ -145,7 +151,7 @@
                     </div>
                     <ul>
                         <li>меет ли контрагент отношение к вашим конкурентам</li>
-                        <li>Создавались ли дочерние организации, и&nbsp;каково их финансовое положение</li>
+                        <li>Создавались ли дочерние организации, и каково их финансовое положение</li>
                         <li>Заметны ли признаки подготовки компании к банкротству</li>
                         <li>меются ли признаки оптимизации налогов</li>
                         <li>Есть ли за учредителем шлейф проблемных юридических лиц</li>
@@ -161,7 +167,7 @@
         <div class="container centered-wrp">
             <div class="advantages-wrp">
                 <div class="advantages-title"> <i class="ico" data-ico="portfolio"> <svg><use xlink:href="storage/images_web/features-list.svg#portfolio"></use></svg> </i>
-                    <div class="page-title">спользуйте данные о&nbsp;госзакупках</div>
+                    <div class="page-title">спользуйте данные о госзакупках</div>
                 </div>
                 <div class="advantages-body">
                     <div class="cards">
@@ -225,7 +231,7 @@
                         <li>организационно-правовой форме</li>
                         <li>другим значимым для вас критериям</li>
                     </ul>
-                    <a href="/search-advanced" rel="nofollow" class="advantages-link" data-goal-param="interactions, main-advanced_search">&nbsp;асширенный поиск
+                    <a href="/search-advanced" rel="nofollow" class="advantages-link" data-goal-param="interactions, main-advanced_search"> асширенный поиск
                         <span class="arr"></span>
                     </a>
                 </div>
@@ -268,15 +274,15 @@
                     <li> <strong>Открытые и завершенные исполнительные производства</strong>
                         <span>ФССП</span> </li>
                     <li> <strong>Госзакупки
-                            <span class="nowrap">по 223, 44 и 94&nbsp;ФЗ</span>
+                            <span class="nowrap">по 223, 44 и 94 ФЗ</span>
                         </strong>
                         <span>Федеральное казначейство</span> </li>
                     <li> <strong>Связи между организациями</strong>
-                        <span>ЕГ&nbsp;ЮЛ, ЕГ&nbsp;П</span> </li>
+                        <span>ЕГ ЮЛ, ЕГ П</span> </li>
                     <li> <strong>Основные сведения по ЮЛ и П</strong>
-                        <span>ЕГ&nbsp;ЮЛ, ЕГ&nbsp;П</span> </li>
+                        <span>ЕГ ЮЛ, ЕГ П</span> </li>
                     <li> <strong>Банкротства</strong>
-                        <span>ЕФ&nbsp;СБ</span> </li>
+                        <span>ЕФ СБ</span> </li>
                 </ul>
             </div>
             <div class="illustrate-hero illustrate-hero-official-l lazyload" data-bg="/storage/images_web/illustrations/block-official.png"></div>
@@ -290,7 +296,7 @@
                         <span>Специальные реестры ФНС</span> </li>
                     <li> <strong>Открытые и завершенные исполнительные производства</strong>
                         <span>Специальные реестры ФНС</span> </li>
-                    <li> <strong>&nbsp;еестр малых и средних предприятий</strong>
+                    <li> <strong> еестр малых и средних предприятий</strong>
                         <span>Специальные реестры ФНС</span> </li>
                     <li> <strong>Численность сотрудников организаций</strong>
                         <span>Специальные реестры ФНС</span> </li>
@@ -303,7 +309,7 @@
                     <li> <strong>Доходы и расходы организаций</strong>
                         <span>Специальные реестры ФНС</span> </li>
                     <li> <strong>Бухгалтерская отчетность</strong>
-                        <span>ФНС, &nbsp;осстат</span> </li>
+                        <span>ФНС,  осстат</span> </li>
                     <li> <strong>Лицензии</strong>
                         <span>ФНС, профильные ведомства</span> </li>
                 </ul>
@@ -320,9 +326,9 @@
         <div class="container has-padding">
             <div class="cols-two">
                 <div class="page-title page-title-h3"> Rusprofile используют
-                    <br>для&nbsp;проверки контрагентов более&nbsp;200&nbsp;тысяч
+                    <br>для проверки контрагентов более 200 тысяч
                     <br> организаций </div>
-                <div class="section-users-img"> <img data-srcset="/storage/images_web/index-page/responsive/companyLogo.png 1x, /storage/images_web/index-page/responsive/companyLogo@2x.png 2x, /storage/images_web/index-page/responsive/companyLogo@3x.png 3x, /storage/images_web/index-page/responsive/companyLogo@4x.png 4x" data-origin="/storage/images_web/index-page/responsive/companyLogo.png" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload" height="358" width="531" alt="Rusprofile используют для&nbsp;проверки контрагентов более&nbsp;200&nbsp;тысяч организаций"> </div>
+                <div class="section-users-img"> <img src="/storage/images_web/companyLogo.png" class="lazyload" height="358" width="531" alt="Rusprofile используют для проверки контрагентов более 200 тысяч организаций"> </div>
             </div>
         </div>
     </section>
@@ -330,7 +336,7 @@
         <div class="container has-padding-l text-block">
             <div class="page-title page-title-h3">Вакансии в Rusprofile</div>
             <div class="img-cols-block img-half-size cols-centered">
-                <div class="img-cols-block-img tablet-img-top"> <img data-srcset="/storage/images_web/page_team/responsive/image51.jpg 1x, /storage/images_web/page_team/responsive/image51@2x.jpg 2x, /storage/images_web/page_team/responsive/image51@3x.jpg 3x, /storage/images_web/page_team/responsive/image51@4x.jpg 4x" data-origin="/storage/images_web/page_team/responsive/image51.jpg" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="lazyload" height="348" alt="&nbsp;абота в команде Rusprofile"> </div>
+                <div class="img-cols-block-img tablet-img-top"> <img src="/storage/images_web/image51.jpg" class="lazyload" height="348" alt=" абота в команде Rusprofile"> </div>
                 <div class="text">
                     <p> У нас небольшая команда без бюрократии и основатели, которые ценят мнение каждого. Комфортный офис в Москва-Сити и частичная удаленка. А ещё — честные зарплаты и премии. </p>
                     <p>Мы всегда в поиске талантливых специалистов.</p>
@@ -356,7 +362,7 @@
                             <div class="capability-item__header">Найти организацию по виду деятельности ОКВЭД</div>
                             <div class="capability-item__expand okved-expand">
                                 <div class="okved-toggler">
-                                    <span class="okved-tab active">&nbsp;убрикатор</span> /
+                                    <span class="okved-tab active"> убрикатор</span> /
                                     <span class="okved-tab fakelink">Популярные</span> </div>
                                 <div class="okved-tabbody active">
                                     <table class="okved-table">
@@ -370,7 +376,7 @@
                                             <tr>
                                                 <td>
                                                     <span class="num">01</span></td>
-                                                <td><a href="/codes/10000">&nbsp;астениеводство и животноводство, охота и предоставление соответствующих услуг в этих областях</a></td>
+                                                <td><a href="/codes/10000"> астениеводство и животноводство, охота и предоставление соответствующих услуг в этих областях</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -380,7 +386,7 @@
                                             <tr>
                                                 <td>
                                                     <span class="num">03</span></td>
-                                                <td><a href="/codes/30000">&nbsp;ыболовство и рыбоводство</a></td>
+                                                <td><a href="/codes/30000"> ыболовство и рыбоводство</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -525,7 +531,7 @@
                                             <tr class="spoiler overhidden">
                                                 <td>
                                                     <span class="num">33</span></td>
-                                                <td><a href="/codes/330000">&nbsp;емонт и монтаж машин и оборудования</a></td>
+                                                <td><a href="/codes/330000"> емонт и монтаж машин и оборудования</a></td>
                                             </tr>
                                             <tr class="spoiler overhidden">
                                                 <td>
@@ -565,7 +571,7 @@
                                             <tr class="spoiler overhidden">
                                                 <td>
                                                     <span class="num">43</span></td>
-                                                <td><a href="/codes/430000">&nbsp;аботы строительные специализированные</a></td>
+                                                <td><a href="/codes/430000"> аботы строительные специализированные</a></td>
                                             </tr>
                                             <tr class="spoiler overhidden">
                                                 <td>
@@ -640,7 +646,7 @@
                                             <tr class="spoiler overhidden">
                                                 <td>
                                                     <span class="num">62</span></td>
-                                                <td><a href="/codes/620000">&nbsp;азработка компьютерного программного обеспечения, консультационные услуги в данной области и другие сопутствующие услуги</a></td>
+                                                <td><a href="/codes/620000"> азработка компьютерного программного обеспечения, консультационные услуги в данной области и другие сопутствующие услуги</a></td>
                                             </tr>
                                             <tr class="spoiler overhidden">
                                                 <td>
@@ -785,7 +791,7 @@
                                             <tr class="spoiler overhidden">
                                                 <td>
                                                     <span class="num">95</span></td>
-                                                <td><a href="/codes/950000">&nbsp;емонт компьютеров, предметов личного потребления и хозяйственно-бытового назначения</a></td>
+                                                <td><a href="/codes/950000"> емонт компьютеров, предметов личного потребления и хозяйственно-бытового назначения</a></td>
                                             </tr>
                                             <tr class="spoiler overhidden">
                                                 <td>
@@ -839,7 +845,7 @@
                                             <tr>
                                                 <td>
                                                     <span class="num">43.99</span></td>
-                                                <td><a href="/codes/439900">&nbsp;аботы строительные специализированные прочие, не включенные в другие группировки</a></td>
+                                                <td><a href="/codes/439900"> аботы строительные специализированные прочие, не включенные в другие группировки</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -894,12 +900,12 @@
                                             <tr>
                                                 <td>
                                                     <span class="num">43.33</span></td>
-                                                <td><a href="/codes/433300">&nbsp;аботы по устройству покрытий полов и облицовке стен</a></td>
+                                                <td><a href="/codes/433300"> аботы по устройству покрытий полов и облицовке стен</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <span class="num">43.32</span></td>
-                                                <td><a href="/codes/433200">&nbsp;аботы столярные и плотничные</a></td>
+                                                <td><a href="/codes/433200"> аботы столярные и плотничные</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -929,7 +935,7 @@
                                             <tr>
                                                 <td>
                                                     <span class="num">43.11</span></td>
-                                                <td><a href="/codes/431100">&nbsp;азборка и снос зданий</a></td>
+                                                <td><a href="/codes/431100"> азборка и снос зданий</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -1019,7 +1025,7 @@
                                             <tr class="spoiler overhidden">
                                                 <td>
                                                     <span class="num">43.3</span></td>
-                                                <td><a href="/codes/433000">&nbsp;аботы строительные отделочные</a></td>
+                                                <td><a href="/codes/433000"> аботы строительные отделочные</a></td>
                                             </tr>
                                             <tr class="spoiler overhidden">
                                                 <td>
@@ -1029,7 +1035,7 @@
                                             <tr class="spoiler overhidden">
                                                 <td>
                                                     <span class="num">43.99.1</span></td>
-                                                <td><a href="/codes/439910">&nbsp;аботы гидроизоляционные</a></td>
+                                                <td><a href="/codes/439910"> аботы гидроизоляционные</a></td>
                                             </tr>
                                             <tr class="spoiler overhidden">
                                                 <td>
@@ -1101,7 +1107,7 @@
                                     <li> <a href="/ip/НАА">Н</a> </li>
                                     <li> <a href="/ip/ОАМ">О</a> </li>
                                     <li> <a href="/ip/ПАА">П</a> </li>
-                                    <li> <a href="/ip/&nbsp;АА">&nbsp;</a> </li>
+                                    <li> <a href="/ip/ АА"> </a> </li>
                                     <li> <a href="/ip/САА">С</a> </li>
                                     <li> <a href="/ip/ТАА">Т</a> </li>
                                     <li> <a href="/ip/УАД">У</a> </li>
@@ -1112,7 +1118,7 @@
                                     <li> <a href="/ip/ШАА">Ш</a> </li>
                                     <li> <a href="/ip/ЩАБ">Щ</a> </li>
                                     <li> Ъ </li>
-                                    <li> <a href="/ip/ЫБ&nbsp;">Ы</a> </li>
+                                    <li> <a href="/ip/ЫБ ">Ы</a> </li>
                                     <li> Ь </li>
                                     <li> <a href="/ip/ЭАН">Э</a> </li>
                                     <li> <a href="/ip/ЮАД">Ю</a> </li>
@@ -1143,7 +1149,7 @@
                                     <li> <a href="/person/НАА">Н</a> </li>
                                     <li> <a href="/person/ОАМ">О</a> </li>
                                     <li> <a href="/person/ПАА">П</a> </li>
-                                    <li> <a href="/person/&nbsp;АА">&nbsp;</a> </li>
+                                    <li> <a href="/person/ АА"> </a> </li>
                                     <li> <a href="/person/САА">С</a> </li>
                                     <li> <a href="/person/ТАА">Т</a> </li>
                                     <li> <a href="/person/УАГ">У</a> </li>
@@ -1165,7 +1171,7 @@
                     </div>
                     <div class="capability-col datetimes">
                         <div class="capability-col-item subs-box">
-                            <div class="capability-item__header">Найти организацию по дате присвоения ОГ&nbsp;Н</div>
+                            <div class="capability-item__header">Найти организацию по дате присвоения ОГ Н</div>
                             <div class="capability-item__expand">
                                 <ul class="letter-list">
                                     <li><a href="/date/2022-12-30">2022</a></li>
@@ -1244,7 +1250,7 @@
                     </div>
                     <div class="capability-col datetimes">
                         <div class="capability-col-item subs-box">
-                            <div class="capability-item__header">Найти индивидуального предпринимателя по дате присвоения ОГ&nbsp;НП</div>
+                            <div class="capability-item__header">Найти индивидуального предпринимателя по дате присвоения ОГ НП</div>
                             <div class="capability-item__expand">
                                 <ul class="letter-list">
                                     <li><a href="/date-ip/2022-12-30">2022</a></li>

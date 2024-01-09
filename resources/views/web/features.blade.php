@@ -1,6 +1,13 @@
 @section('title', $title ?? env('APP_NAME'))
 @section('description', $description ?? 'Сервис проверки и анализа российских юридических лиц и предпринимателей')
 
+@push('css')
+    <link rel="stylesheet" href="/assets/css_web/page_features.css?v={{time()}}" />
+    <link rel="stylesheet" href="/assets/css_web/main.css?v={{time()}}" />
+@endpush
+
+@section('advantages', 'features-page advantages-two')
+
 <x-layout>
     <section class="main-section info-page-bg-alt lazyload">
         <div class="container centered-wrp">
@@ -10,12 +17,12 @@
                 <nav class="sections-nav">
                     <ul>
                         <li><a href="#advantages-stability">Экспресс-анализ надежности</a></li>
-                        <li><a href="#advantages-story">??тория изменений</a></li>
+                        <li><a href="#advantages-story">История изменений</a></li>
                         <li><a href="#advantages-registers">Специальные реестры</a></li>
                         <li><a href="#advantages-changes">Отслеживание изменений</a></li>
                         <li><a href="#advantages-features-connections">Связи и аффилированность</a></li>
                         <li><a href="#advantages-arb">Арбитражные дела</a></li>
-                        <li><a href="#advantages-fssp">??полнительные производства</a></li>
+                        <li><a href="#advantages-fssp">Исполнительные производства</a></li>
                         <li><a href="#advantages-company">Доступ для компаний</a></li>
                         <li><a href="#advantages-failure">Банкротства</a></li>
                         <li><a href="#advantages-features-gos">Участие в госзакупках</a></li>
@@ -55,7 +62,7 @@
         <div class="container centered-wrp">
             <div class="advantages-wrp">
                 <div class="advantages-title">
-                    <div class="page-title">??тория изменений</div>
+                    <div class="page-title">История изменений</div>
                 </div>
                 <div class="advantages-body">
                     <div class="cards">
@@ -97,7 +104,7 @@
                         <div class="main-search-wrap">
                             <form id="search-form-multiple-1" action="/search" class="main-search-form index-search-form search-form-multiple" method="GET" onsubmit="return (this.elements.namedItem('query').value.trim().length > 2)">
                                 <div class="input-holder">
-                                    <input name="query" class="index-search-input" type="text" placeholder="??кать по названию, адресу, руководителю, учредителям, ОГ?&nbsp;Н и ??Н" data-prefix="Поиск" maxlength="100" autocomplete="off">
+                                    <input name="query" class="index-search-input" type="text" placeholder="Искать по названию, адресу, руководителю, учредителям, ОГРН и ИНН" data-prefix="Поиск" maxlength="100" autocomplete="off">
                                     <button type="submit" class="search-btn waves-effect waves-light"> <i class="ico" data-ico="search"> <svg><use xlink:href="/storage/images_web/icons.svg#search"></use></svg> </i> </button> <span class="finded-count"></span> </div>
                                 <input type="hidden" class="search_inactive" name="search_inactive" value="0"> </form>
                             <div class="search-drop"></div>
@@ -120,7 +127,7 @@
                         <div class="card-one lazyload"></div>
                         <div class="card-two lazyload"></div>
                     </div>
-                    <p class="strong"> ??учение связей позволит получить более полное представление о деятельности организации. </p>
+                    <p class="strong"> Обучение связей позволит получить более полное представление о деятельности организации. </p>
                     <p> Можно узнать об аффилированности с “однодневками” и выявить сложные цепочки контрагентов. Также это поможет предупредить некоторые налоговые риски. Доступны актуальные сведения и история изменений. </p>
                 </div>
             </div>
@@ -147,7 +154,7 @@
         <div class="container centered-wrp">
             <div class="advantages-wrp">
                 <div class="advantages-title">
-                    <div class="page-title">??полнительные производства</div>
+                    <div class="page-title">Исполнительные производства</div>
                 </div>
                 <div class="advantages-body">
                     <div class="cards">
@@ -155,7 +162,7 @@
                         <div class="card-two lazyload"></div>
                     </div>
                     <p class="strong"> Данные о задолженностях, а также требованиях неимущественного характера, которые переданы на исполнение судебным приставам. </p>
-                    <p> Большие долги или аресты имущества могут существенно влиять на деятельность организации и ее устойчивость. ??огда такие факты говорят о ненадежности компании. </p>
+                    <p> Большие долги или аресты имущества могут существенно влиять на деятельность организации и ее устойчивость. Тогда такие факты говорят о ненадежности компании. </p>
                 </div>
             </div>
         </div>
@@ -253,9 +260,9 @@
                     </ul>
                     <div class="main-search">
                         <div class="main-search-wrap">
-                            <form id="search-form-multiple-2" action="/search" class="main-search-form index-search-form search-form-multiple" method="GET" onsubmit="return (this.elements.namedItem('query').value.trim().length > 2)">
+                            <form id="search-form-multiple-2" action="/search" class="main-search-form index-search-form search-form-multiple" method="GET" >
                                 <div class="input-holder">
-                                    <input name="query" class="index-search-input" type="text" placeholder="??кать по названию, адресу, руководителю, учредителям, ОГ?&nbsp;Н и ??Н" data-prefix="Поиск" maxlength="100" autocomplete="off">
+                                    <input name="query" class="index-search-input" type="text" placeholder="Искать по названию, адресу, руководителю, учредителям, ОГРН" data-prefix="Поиск" maxlength="100" autocomplete="off">
                                     <button type="submit" class="search-btn waves-effect waves-light"> <i class="ico" data-ico="search"> <svg><use xlink:href="storage/images_web/icons.svg#search"></use></svg> </i> </button> <span class="finded-count"></span> </div>
                                 <input type="hidden" class="search_inactive" name="search_inactive" value="0"> </form>
                             <div class="search-drop"></div>
@@ -356,8 +363,8 @@
                     <div class="cards">
                         <div class="card-one lazyload"></div>
                     </div>
-                    <p class="strong"> ??формация о компании или ?? из единого госреестра юрлиц или индивидуальных предпринимателей ФНС. </p>
-                    <p> Данные доступны как для просмотра на странице сервиса, так и для скачивания в виде pdf-файла. Файл является аналогом выписки из ЕГ?&nbsp;ЮЛ или ЕГ?&nbsp;?? с официального сайта налоговой. </p>
+                    <p class="strong"> Информация о компании или с из единого госреестра юрлиц или индивидуальных предпринимателей ФНС. </p>
+                    <p> Данные доступны как для просмотра на странице сервиса, так и для скачивания в виде pdf-файла. Файл является аналогом выписки из ЕГРЮЛ или ЕГРН с официального сайта налоговой. </p>
                 </div>
             </div>
         </div>

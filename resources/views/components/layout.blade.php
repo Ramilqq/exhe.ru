@@ -16,11 +16,13 @@
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:image" content="/build/assets/logo-head-8D_71raa.svg">
 
+    @stack('css')
+
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
 
-<body class="index-page advantage-alt info-page">
+<body class="@yield('advantages')  info-page">
     <div id="wrapper">
         <header class="head static-pages">
             <div class="head__content relative flex container">
@@ -62,16 +64,16 @@
         <footer class="footer lazyload">
             <div class="container">
                 <div class="footer-inner">
-                    <a href="/" class="footer-logo" title="Rusprofile.ru - информация о российских юридических лицах и предпринимателях">
-                        <span class="text">Rusprofile.ru - информация о российских юридических лицах и предпринимателях</span>
+                    <a href="/" class="footer-logo" title="{{env('APP_NAME')}} - информация о российских юридических лицах и предпринимателях">
+                        <span class="text">{{env('APP_NAME')}} - информация о российских юридических лицах и предпринимателях</span>
                     </a>
                     <nav>
                         <span><a href="/about" data-footer-layer="about">О проекте</a></span>
-                        <span><a href="/sources" data-footer-layer="sources">сточники данных</a></span>
-                        <span><a href="/team" data-footer-layer="team">Команда</a></span>
+                        <span><a href="/sources" data-footer-layer="sources">Источники данных</a></span>
+                        <!--span><a href="/team" data-footer-layer="team">Команда</a></span-->
                         <span><a href="/jobs" data-footer-layer="jobs" data-notice="1">Вакансии</a></span>
-                        <span><a href="/smi" data-footer-layer="forMassMedia">Доступ для СМ</a></span>
-                        <span><a href="/egrul-fns" data-footer-layer="egrul-fns">Выписка из ЕГ&nbsp;ЮЛ</a></span>
+                        <!--span><a href="/smi" data-footer-layer="forMassMedia">Доступ для СМ</a></span>
+                        <span><a href="/egrul-fns" data-footer-layer="egrul-fns">Выписка из ЕГ&nbsp;ЮЛ</a></span-->
                     </nav>
                     <div class="footer-bottom">
                         <div class="footer-bottom-part">
@@ -79,16 +81,16 @@
                                 <a href="https://sk.ru/" target="_blank" rel="nofollow" class="footer-partner"></a>
                                 <a href="https://reestr.digital.gov.ru/reestr/1393422/" target="_blank" rel="nofollow" class="footer-partner rpo"></a>
                             </div>
-                            <span class="copy"> Rusprofile.ru © 2013-2023 </span>
+                            <span class="copy"> {{env('APP_NAME')}} © 2013-2023 </span>
                         </div>
-                        <nav>
+                        <!--nav>
                             <span style="order: 1;"><a href="/support/rules.html" class="tablet-wrap">Пользовательское соглашение</a></span>
                             <span style="order: 3;"><a href="/support/terms.html">Основания размещения информации</a></span>
                             <span style="order: 2;"><a href="/support/privacy.html" class="tablet-wrap">Политика конфиденциальности</a></span>
                             <span style="order: 4;"><a href="https://baturin.ru?rp" rel="nofollow" target="_blank">Дизайн B-G</a> © 2018</span>
                             <span style="order: 6;"><a href="/articles/podborka-statej-o-proverke-kontragentov">Полезные статьи</a></span>
                             <span style="order: 5;"><a href="/support/contact" data-open-mw-support="" data-after-sbm="feedback_click">Обратная связь</a></span>
-                        </nav>
+                        </nav-->
                     </div>
                 </div>
             </div>
@@ -96,5 +98,7 @@
             <div class="illustrate-hero illustrate-hero-footer-r"></div>
         </footer>
     </div>
+
+    @stack('js')
 </body>
 </html>

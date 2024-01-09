@@ -1,6 +1,13 @@
 @section('title', $title ?? env('APP_NAME'))
 @section('description', $description ?? 'Сервис проверки и анализа российских юридических лиц и предпринимателей')
 
+@push('css')
+    <link rel="stylesheet" href="/assets/css_web/page_subscribe.css?v={{time()}}" />
+    <link rel="stylesheet" href="/assets/css_web/main.css?v={{time()}}" />
+@endpush
+
+@section('advantages', 'subs subsvar')
+
 <x-layout>
     <div id="main">
         <div class="wide-container">
@@ -157,10 +164,10 @@
                 <div class="title">Другие сервисы Rusprofile
                 </div>
                 <div class="fs16 relink__cols">
-                    <a href="/business" class="relink-item" data-interaction="relink-click-business"> <img data-src="/images/icons/standalone/relink-presentation.svg" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="80px" class="ico ico-xxl lazyload" alt=""> <span> <span class="big link">Сервис Бизнес</span> Подтвердите надежность
+                    <a href="/business" class="relink-item" data-interaction="relink-click-business"> <img src="/storage/images_web/relink-presentation.svg" width="80px" class="ico ico-xxl lazyload" alt=""> <span> <span class="big link">Сервис Бизнес</span> Подтвердите надежность
                         <br>вашей компании </span>
                     </a>
-                    <a href="/client-search-offer" class="relink-item" data-interaction="relink-click-search"> <img data-src="/images/icons/standalone/relink-contact.svg" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="80px" class="ico ico-xxl lazyload" alt=""> <span> <span class="big link">Поиск клиентов</span> Получите выгрузку b2b-клиентов <span class="nowrap">с контактами</span> </span>
+                    <a href="/client-search-offer" class="relink-item" data-interaction="relink-click-search"> <img src="/storage/images_web/relink-contact.svg" width="80px" class="ico ico-xxl lazyload" alt=""> <span> <span class="big link">Поиск клиентов</span> Получите выгрузку b2b-клиентов <span class="nowrap">с контактами</span> </span>
                     </a>
                 </div>
             </section>
