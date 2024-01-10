@@ -6,7 +6,7 @@ Route::controller(App\Http\Controllers\Web\IndexController::class)->group(functi
     Route::get('/{page?}', 'index')->name('index');
 });
 
-Route::controller(App\Http\Controllers\Admin\indexController::class)->prefix('/admin')->group(function () {
+Route::controller(App\Http\Controllers\Admin\IndexController::class)->prefix('/admin')->group(function () {
     Route::get('/index', 'index')->name('admin.index');
 });
 Route::controller(App\Http\Controllers\Admin\PageController::class)->prefix('/admin')->group(function () {
