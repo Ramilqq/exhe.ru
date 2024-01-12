@@ -16,6 +16,8 @@
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:image" content="/build/assets/logo-head-8D_71raa.svg">
 
+    <base href="/">
+
     @stack('css')
 
     @vite('resources/css/app.css')
@@ -42,7 +44,7 @@
                 </div>
                 <div class="head__search only-mobile empty">
                     <button type="button" class="head__search-opener btn-rounded hidden searchIco" id="js-head__search-opener"></button>
-                    <form id="searchform" action="/search" class="search" method="GET" onsubmit="return (this.elements.namedItem('query').value.trim().length > 2)">
+                    <form id="searchform" action="/search" class="search" method="GET">
                         <input name="query" class="search__input" type="text" placeholder="скать по названию, адресу, руководителю, учредителям, ОГ&nbsp;Н и НН" maxlength="100" autocomplete="off">
                         <input type="hidden" class="search_inactive" name="search_inactive" value="0">
                         <button type="button" class="head__search__close" id="js-head__search__close"></button>
@@ -52,8 +54,8 @@
                     <a href="/search-advanced" class="advanced-search-btn-external advanced-search-btn" rel="nofollow" data-goal-param="interactions, header-advanced_search" data-new=""> <i class="ico" data-ico="settings"> <svg><use xlink:href="storage/images_web/icons_1.svg#settings"></use></svg> </i> &nbsp;асширенный поиск <i class="ico" data-ico="next_chevron"> <svg><use xlink:href="storage/images_web/icons_1.svg"></use></svg> </i> </a>
                 </div>
                 <div class="head__user" id="js-head-user">
-                    <div class="btn btn-rounded" id="menu-personal-trigger"> <i class="ico ico-m" data-ico="user_new"> <svg><use xlink:href="storage/images_web/icons_1.svg#user_new"></use></svg> </i>
-                        <span class="btn-text"> Личный кабинет </span>
+                    <div class="btn-rounded" id="menu-personal-trigger"> <i class="ico ico-m" data-ico="user_new"> <svg><use xlink:href="storage/images_web/icons_1.svg#user_new"></use></svg> </i>
+                        <a href="{{route('web.user_organization')}}" class="btn-text"> Личный кабинет </a>
                     </div>
                 </div>
             </div>

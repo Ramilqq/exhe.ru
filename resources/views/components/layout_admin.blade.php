@@ -33,14 +33,14 @@
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Home</span>
                         </li>
-                        <li class="sidebar-item">
+                        <!--li class="sidebar-item">
                             <a class="sidebar-link" href="/admin/index" aria-expanded="false">
                                 <span>
                                 <i class="ti ti-layout-dashboard"></i>
                                 </span>
                                 <span class="hide-menu">Дашборд</span>
                             </a>
-                        </li>
+                        </li-->
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="/admin/page" aria-expanded="false">
                                 <span>
@@ -49,7 +49,15 @@
                                 <span class="hide-menu">Страницы</span>
                             </a>
                         </li>
-                        <li class="nav-small-cap">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/admin/tarif" aria-expanded="false">
+                                <span>
+                                <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Тарифы</span>
+                            </a>
+                        </li>
+                        <!--li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">UI COMPONENTS</span>
                         </li>
@@ -124,13 +132,13 @@
                                 </span>
                                 <span class="hide-menu">Icons</span>
                             </a>
-                        </li>
+                        </li-->
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{route('admin.logout')}}" aria-expanded="false">
                                 <span>
                                 <i class="ti ti-aperture"></i>
                                 </span>
-                                <span class="hide-menu">Sample Page</span>
+                                <span class="hide-menu">Выйти</span>
                             </a>
                         </li>
                     </ul>
@@ -170,7 +178,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
-                <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+                <!--div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                         <li class="nav-item dropdown">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
@@ -196,7 +204,7 @@
                             </div>
                         </li>
                     </ul>
-                </div>
+                </div-->
                 </nav>
             </header>
             <!--  Header End -->
