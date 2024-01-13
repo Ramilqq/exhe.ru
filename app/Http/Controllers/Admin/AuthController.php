@@ -38,7 +38,7 @@ class AuthController extends Controller
     {
         User::create($request->validated());
 
-        return redirect()->route('login');
+        return redirect()->route('admin.login');
     }
 
     public function logout(): RedirectResponse
