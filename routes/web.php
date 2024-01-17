@@ -32,6 +32,16 @@ Route::middleware('auth_admin:admin')->prefix('/admin')->group(function() {
         Route::delete('/tarif/{tarif}/delete', 'delete')->name('admin.tarif_delete');
     });
 
+    Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
+        Route::get('/user', 'index')->name('admin.user_index');
+        Route::get('/user/{user}/show', 'show')->name('admin.user_show');
+        Route::get('/user/create', 'create')->name('admin.user_create');
+        Route::post('/user/create', 'store')->name('admin.user_store');
+        Route::get('/user/{user}/edit', 'edit')->name('admin.user_edit');
+        Route::patch('/user/{user}/edit', 'update')->name('admin.user_update');
+        Route::delete('/user/{user}/delete', 'delete')->name('admin.user_delete');
+    });
+
     Route::controller(App\Http\Controllers\Admin\AuthController::class)->group(function () {
         Route::get('/logout', 'logout')->name('admin.logout');
     });

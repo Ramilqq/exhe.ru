@@ -19,8 +19,8 @@
         <!-- Sidebar scroll-->
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
-                    <a href="./index.html" class="text-nowrap logo-img">
-                        <img src="/assets/images/logos/dark-logo.svg" width="180" alt="" />
+                    <a href="/admin/tarif" class="text-nowrap logo-img">
+                        {{env('APP_NAME')}}
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -55,6 +55,14 @@
                                 <i class="ti ti-layout-dashboard"></i>
                                 </span>
                                 <span class="hide-menu">Тарифы</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/admin/user" aria-expanded="false">
+                                <span>
+                                <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Пользователи</span>
                             </a>
                         </li>
                         <!--li class="nav-small-cap">
